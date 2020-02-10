@@ -6,7 +6,7 @@ pipeline {
         PROJECT_ID = "optimal-leon"
         CLUSTER_NAME = "gke-deploy-cluster"
         LOCATION = "us-central1-b"
-        CREDENTIALS_ID = 'gke-deployer@optimal-leon.iam.gserviceaccount.com'
+        CREDENTIALS_ID = 'kubeconfig'
     }
     stages {
         stage('Build') {
