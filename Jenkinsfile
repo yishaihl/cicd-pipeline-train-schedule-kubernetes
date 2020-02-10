@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'k8s-jobs' }
     environment {
         //be sure to replace "willbla" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "yishaihl32/train-schedule"
