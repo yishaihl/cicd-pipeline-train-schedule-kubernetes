@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: train-schedule-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: train-schedule
   ports:
