@@ -3,12 +3,13 @@ apiVersion: v1
 metadata:
   name: train-schedule-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: train-schedule
   ports:
   - protocol: TCP
     port: 8080
+    nodePort: 8080
 
 ---
 
