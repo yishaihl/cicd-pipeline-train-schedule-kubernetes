@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent Jenkins-Slave
     environment {
         //be sure to replace "willbla" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "willbla/train-schedule"
