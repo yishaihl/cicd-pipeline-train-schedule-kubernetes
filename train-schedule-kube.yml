@@ -9,7 +9,7 @@ spec:
   ports:
   - protocol: TCP
     port: 3000
-    nodePort: 8080
+    nodePort: 3000
 
 ---
 
@@ -33,4 +33,4 @@ spec:
       - name: train-schedule
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
