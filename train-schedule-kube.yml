@@ -8,7 +8,7 @@ spec:
     app: train-schedule
   ports:
   - protocol: TCP
-    port: 8080
+    port: 3000
     nodePort: 8080
 
 ---
