@@ -3,6 +3,10 @@ pipeline {
     environment {
         //be sure to replace "willbla" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "yishaihl32/train-schedule"
+        PROJECT_ID = "optimal-leon"
+        CLUSTER_NAME = "gke-deploy-cluster"
+        LOCATION = "us-central1-b"
+        CREDENTIALS_ID = 'gke-deployer@optimal-leon.iam.gserviceaccount.com'
     }
     stages {
         stage('Build') {
@@ -45,11 +49,14 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'train-schedule-kube.yml',
-                    enableConfigSubstitution: true
-                )
+                step([
+                $class: 'KubernetesEngineBuilder',
+                projectId: env.PROJECT_ID,
+                clusterName: env.CLUSTER_NAME,
+                location: env.LOCATION,
+                manifestPattern: 'train-schedule-kube.yml',
+                credentialsId: env.CREDENTIALS_ID,
+                verifyDeployments: true])
             }
         }
     }
