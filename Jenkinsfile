@@ -4,9 +4,9 @@ pipeline {
         //be sure to replace "willbla" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "yishaihl32/train-schedule"
         PROJECT_ID = "optimal-leon"
-        CLUSTER_NAME = "gke-deploy-cluster"
-        LOCATION = "us-central1-b"
-        CREDENTIALS_ID = 'kubeconfig'
+        CLUSTER_NAME = "gke-jenkins-cluster"
+        LOCATION = "us-central1-a"
+        CREDENTIALS_ID = '4Optimal-leon'
     }
     stages {
         stage('Build') {
