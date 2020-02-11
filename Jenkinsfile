@@ -52,7 +52,8 @@ pipeline {
                 projectId: env.PROJECT_ID,
                 clusterName: env.CLUSTER_NAME,
                 location: env.LOCATION,
-                manifestPattern: sh "sed -i 's/$DOCKER_IMAGE_NAME:$BUILD_NUMBER/"(DOCKER_IMAGE_NAME)":"(BUILD_NUMBER)"/g'" "train-schedule-kube.yml",
+                sh "sed -i 's/$DOCKER_IMAGE_NAME:$BUILD_NUMBER/"(DOCKER_IMAGE_NAME)":"(BUILD_NUMBER)"/g'"    
+                manifestPattern: "train-schedule-kube.yml",
                 credentialsId: env.CREDENTIALS_ID,
                 verifyDeployments: true])
             }
