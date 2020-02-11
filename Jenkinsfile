@@ -51,8 +51,7 @@ pipeline {
                 $class: 'KubernetesEngineBuilder',
                 projectId: env.PROJECT_ID,
                 clusterName: env.CLUSTER_NAME,
-                location: env.LOCATION,
-                sh sed -i 's/$DOCKER_IMAGE_NAME:$BUILD_NUMBER/"(DOCKER_IMAGE_NAME)":"(BUILD_NUMBER)"/g' "train-schedule-kube.yml"    
+                location: env.LOCATION,    
                 manifestPattern: "train-schedule-kube.yml",
                 credentialsId: env.CREDENTIALS_ID,
                 verifyDeployments: true])
