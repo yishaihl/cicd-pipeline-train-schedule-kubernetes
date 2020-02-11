@@ -53,7 +53,6 @@ pipeline {
                 clusterName: env.CLUSTER_NAME,
                 location: env.LOCATION,    
                 manifestPattern: 'train-schedule-kube.yml',
-                enableConfigSubstitution: true,
                 credentialsId: env.CREDENTIALS_ID,
                 verifyDeployments: true])
             }
