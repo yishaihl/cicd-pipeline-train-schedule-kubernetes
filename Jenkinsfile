@@ -42,6 +42,26 @@ pipeline {
                 }
             }
         }
+        stage('CanaryDeploy') {
+            when {
+                branch 'master'
+            }
+            environment { 
+                CANARY_REPLICAS = 1
+            }
+            steps{
+                step([
+                $class: 'KubernetesEngineBuilder',
+                projectId: env.PROJECT_ID,
+                clusterName: env.CLUSTER_NAME,
+                location: env.LOCATION,    
+                manifestPattern: 'train-schedule-kube-canary.yml',
+                credentialsId: env.CREDENTIALS_ID,
+                verifyDeployments: true])
+            }
+        }
+    }
+}
         stage('Deploy to GKE') {
             when {
                 branch 'master'
