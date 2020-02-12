@@ -24,14 +24,16 @@ spec:
   selector:
     matchLabels:
       app: train-schedule
+      track: stable
   template:
     metadata:
       labels:
         app: train-schedule
+        track: stable
     spec:
       containers:
       - name: train-schedule
-        image: linuxacademycontent/train-schedule:autoscaling
+        image: linuxacademycontent/train-schedule:1
         ports:
         - containerPort: 8080
         livenessProbe:
