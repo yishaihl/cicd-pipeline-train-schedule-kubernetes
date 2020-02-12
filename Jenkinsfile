@@ -60,8 +60,6 @@ pipeline {
                 verifyDeployments: true])
             }
         }
-    }
-}
         stage('Deploy to GKE') {
             when {
                 branch 'master'
