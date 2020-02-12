@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: train-schedule
-        image: linuxacademycontent/train-schedule:1
+        image: yishaihl32/train-schedule:latest
         ports:
         - containerPort: 8080
         livenessProbe:
